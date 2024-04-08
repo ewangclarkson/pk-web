@@ -99,11 +99,6 @@ export class DriverComponent implements OnInit {
     this.markerPositions.push({lat: latitude, lng: longitude});
   }
 
-  setIntervalLocations() {
-    setInterval(() => {
-      this.setCurrentMapInformation();
-    }, 20000);
-  }
 
   setCurrentMapInformation() {
     navigator.geolocation.getCurrentPosition(position => {
@@ -129,7 +124,6 @@ export class DriverComponent implements OnInit {
   defineMapOptions() {
     this.setCurrentMapInformation();
     const number = setInterval(() => {
-      this.markerPositions = this.markerPositions.filter((pos) => (pos.lat !== this.center.lat && pos.lng !== this.center.lng));
       this.setCurrentMapInformation();
     }, 20000);
   }

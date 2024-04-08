@@ -73,9 +73,6 @@ export class CustomerComponent {
                   .subscribe((delivery: DeliveryResponse) => {
                     if (delivery.delivery_id == this.deliveryResponse!.delivery_id) {
                       this.deliveryResponse = delivery!;
-                      this.markerPositions = [];
-                      this.setMarkerPosition(response.from_location.lat, response.from_location.lng);
-                      this.setMarkerPosition(response.to_location.lat, response.to_location.lng);
                       this.setMapCurrentPositions(delivery.location.lat,delivery.location.lng);
                     }
                   });
@@ -103,6 +100,7 @@ export class CustomerComponent {
   setMapCurrentPositions(latitude:number,longitude:number) {
         this.center.lat = latitude;
         this.center.lng = longitude;
+        this.markerPositions.pop();
         this.markerPositions.push({lat: latitude, lng: longitude});
         this.displayMap = true;
   }
