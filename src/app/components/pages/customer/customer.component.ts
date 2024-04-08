@@ -101,11 +101,9 @@ export class CustomerComponent {
   }
 
   setMapCurrentPositions(latitude:number,longitude:number) {
-    setTimeout(() => {
         this.center.lat = latitude;
         this.center.lng = longitude;
         this.markerPositions.push({lat: latitude, lng: longitude});
         this.displayMap = true;
-    }, 100);
   }
 }
