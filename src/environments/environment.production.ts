@@ -1,4 +1,4 @@
-const apiHost='https://pk-api-gateway.onrender.com';
+const apiHost='https://packagetracker.onrender.com/';
 
 export const environment = {
   apiHost:apiHost,
